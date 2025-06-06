@@ -1,0 +1,27 @@
+/* src/components/SubjectRow.css */
+.subject-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .subject-row:last-child {
+    border-bottom: none;
+  }
+  
+  .subject-info {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .subject-stats {
+    display: flex;
+    align-items: center;
+  }
+  
+  .subject-stats i {
+    margin-right: 0.5rem;
+  }
+  

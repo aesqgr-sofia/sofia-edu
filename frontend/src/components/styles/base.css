@@ -1,0 +1,199 @@
+/* 
+  Sofia - Base CSS
+  Reset and foundation styles for the application
+*/
+
+/* Import variables */
+@import './variables.css';
+
+/* Box sizing reset */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+/* Reset margins */
+body, h1, h2, h3, h4, h5, h6, p, ol, ul, figure, blockquote, dl, dd {
+  margin: 0;
+}
+
+/* Set core body defaults */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+  font-family: var(--sofia-font-family);
+  color: var(--sofia-text-primary);
+  background-color: var(--sofia-background-primary);
+}
+
+/* Remove list styles */
+ul[class], ol[class] {
+  list-style: none;
+  padding: 0;
+}
+
+/* Make images easier to work with */
+img, picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input, button, textarea, select {
+  font: inherit;
+}
+
+/* Reset button styling */
+button {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  font: inherit;
+  color: inherit;
+}
+
+/* Remove default button styling in Firefox */
+button::-moz-focus-inner {
+  border-style: none;
+  padding: 0;
+}
+
+/* Normalize default focus styling */
+:focus-visible {
+  outline: 2px solid var(--sofia-primary-600);
+  outline-offset: 2px;
+}
+
+/* Focus styles for non-keyboard interactions */
+:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* Smooth scrolling for the page */
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Custom scrollbar styles */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--sofia-neutral-100);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--sofia-neutral-400);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--sofia-neutral-500);
+}
+
+/* Selection styles */
+::selection {
+  background-color: var(--sofia-primary-200);
+  color: var(--sofia-primary-900);
+}
+
+/* Hide content visually but keep it accessible for screen readers */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* Common basic containers */
+.sofia-container {
+  width: 100%;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--sofia-spacing-4);
+  padding-right: var(--sofia-spacing-4);
+}
+
+.sofia-container-sm {
+  max-width: 640px;
+}
+
+.sofia-container-md {
+  max-width: 768px;
+}
+
+.sofia-container-lg {
+  max-width: 1024px;
+}
+
+.sofia-container-xl {
+  max-width: 1280px;
+}
+
+.sofia-container-fluid {
+  max-width: none;
+}
+
+/* Basic animation keyframes */
+@keyframes sofia-fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes sofia-fade-out {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
+@keyframes sofia-slide-in {
+  from { transform: translateY(20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes sofia-pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+/* Apply animations */
+.sofia-animate-fade-in {
+  animation: sofia-fade-in 0.3s ease-in-out forwards;
+}
+
+.sofia-animate-fade-out {
+  animation: sofia-fade-out 0.3s ease-in-out forwards;
+}
+
+.sofia-animate-slide-in {
+  animation: sofia-slide-in 0.3s ease-out forwards;
+}
+
+.sofia-animate-pulse {
+  animation: sofia-pulse 2s infinite;
+} 

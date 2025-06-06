@@ -1,0 +1,38 @@
+/* src/components/Header.css */
+.header {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 120px; /* Match sidebar width */
+  z-index: 999;
+  background-color: #fff; /* Ensure it has a background */
+  border-bottom: 1px solid #eaeaea;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  height: 60px;
+  display: flex;
+  align-items: center;
+}
+
+.header-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+/* Centered logo */
+.logo {
+  max-height: 40px;
+  width: auto;
+}
+
+/* Logout button positioned to the right */
+.logout-btn {
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+}
+  

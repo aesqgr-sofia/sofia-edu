@@ -1,0 +1,279 @@
+/* 
+  Sofia - Button Styles
+  Styles for all button variants, sizes, and states
+*/
+
+/* Import variables */
+@import './variables.css';
+
+/* Base Button Styles */
+.sofia-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: var(--sofia-font-weight-medium);
+  border-radius: var(--sofia-border-radius-md);
+  transition: all var(--sofia-transition-normal);
+  cursor: pointer;
+  white-space: nowrap;
+  text-decoration: none;
+  position: relative;
+  outline: none;
+  user-select: none;
+  padding: var(--sofia-spacing-2) var(--sofia-spacing-4);
+}
+
+/* Button Variants */
+
+/* Primary Button */
+.sofia-button--primary {
+  background-color: var(--sofia-primary-600);
+  color: white;
+  border: 1px solid var(--sofia-primary-600);
+}
+
+.sofia-button--primary:hover:not(:disabled) {
+  background-color: var(--sofia-primary-700);
+  border-color: var(--sofia-primary-700);
+}
+
+.sofia-button--primary:active:not(:disabled) {
+  background-color: var(--sofia-primary-800);
+  border-color: var(--sofia-primary-800);
+}
+
+.sofia-button--primary:focus-visible {
+  box-shadow: 0 0 0 3px var(--sofia-primary-200);
+}
+
+/* Secondary Button */
+.sofia-button--secondary {
+  background-color: white;
+  color: var(--sofia-primary-700);
+  border: 1px solid var(--sofia-primary-600);
+}
+
+.sofia-button--secondary:hover:not(:disabled) {
+  background-color: var(--sofia-primary-50);
+  color: var(--sofia-primary-800);
+  border-color: var(--sofia-primary-700);
+}
+
+.sofia-button--secondary:active:not(:disabled) {
+  background-color: var(--sofia-primary-100);
+  color: var(--sofia-primary-900);
+  border-color: var(--sofia-primary-800);
+}
+
+.sofia-button--secondary:focus-visible {
+  box-shadow: 0 0 0 3px var(--sofia-primary-200);
+}
+
+/* Tertiary Button (Ghost/Text) */
+.sofia-button--tertiary {
+  background-color: transparent;
+  color: var(--sofia-primary-600);
+  border: 1px solid transparent;
+}
+
+.sofia-button--tertiary:hover:not(:disabled) {
+  background-color: var(--sofia-primary-50);
+  color: var(--sofia-primary-700);
+}
+
+.sofia-button--tertiary:active:not(:disabled) {
+  background-color: var(--sofia-primary-100);
+  color: var(--sofia-primary-800);
+}
+
+.sofia-button--tertiary:focus-visible {
+  box-shadow: 0 0 0 3px var(--sofia-primary-200);
+}
+
+/* Danger Button */
+.sofia-button--danger {
+  background-color: var(--sofia-danger-600);
+  color: white;
+  border: 1px solid var(--sofia-danger-600);
+}
+
+.sofia-button--danger:hover:not(:disabled) {
+  background-color: var(--sofia-danger-700);
+  border-color: var(--sofia-danger-700);
+}
+
+.sofia-button--danger:active:not(:disabled) {
+  background-color: var(--sofia-danger-800);
+  border-color: var(--sofia-danger-800);
+}
+
+.sofia-button--danger:focus-visible {
+  box-shadow: 0 0 0 3px var(--sofia-danger-200);
+}
+
+/* Icon Button */
+.sofia-button--icon {
+  padding: var(--sofia-spacing-2);
+  border-radius: var(--sofia-border-radius-circle);
+  min-width: auto;
+  width: 36px;
+  height: 36px;
+}
+
+.sofia-button--icon-primary {
+  background-color: var(--sofia-primary-600);
+  color: white;
+}
+
+.sofia-button--icon-primary:hover:not(:disabled) {
+  background-color: var(--sofia-primary-700);
+}
+
+.sofia-button--icon-secondary {
+  background-color: white;
+  color: var(--sofia-primary-600);
+  border: 1px solid var(--sofia-primary-600);
+}
+
+.sofia-button--icon-secondary:hover:not(:disabled) {
+  background-color: var(--sofia-primary-50);
+}
+
+.sofia-button--icon-tertiary {
+  background-color: transparent;
+  color: var(--sofia-primary-600);
+}
+
+.sofia-button--icon-tertiary:hover:not(:disabled) {
+  background-color: var(--sofia-primary-50);
+}
+
+/* Button Sizes */
+.sofia-button--small {
+  font-size: var(--sofia-font-size-sm);
+  padding: var(--sofia-spacing-1) var(--sofia-spacing-3);
+  height: 32px;
+}
+
+.sofia-button--medium {
+  font-size: var(--sofia-font-size-base);
+  padding: var(--sofia-spacing-2) var(--sofia-spacing-4);
+  height: 40px;
+}
+
+.sofia-button--large {
+  font-size: var(--sofia-font-size-lg);
+  padding: var(--sofia-spacing-2) var(--sofia-spacing-5);
+  height: 48px;
+}
+
+/* Icon Button Sizes */
+.sofia-button--icon.sofia-button--small {
+  width: 28px;
+  height: 28px;
+  padding: var(--sofia-spacing-1);
+}
+
+.sofia-button--icon.sofia-button--medium {
+  width: 36px;
+  height: 36px;
+  padding: var(--sofia-spacing-2);
+}
+
+.sofia-button--icon.sofia-button--large {
+  width: 44px;
+  height: 44px;
+  padding: var(--sofia-spacing-2);
+}
+
+/* Button States */
+.sofia-button--disabled,
+.sofia-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* Button with icon and text */
+.sofia-button--with-icon {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sofia-spacing-2);
+}
+
+.sofia-button--with-icon .sofia-button-icon {
+  font-size: 1.2em;
+  line-height: 1;
+}
+
+.sofia-button--with-icon.sofia-button--icon-left .sofia-button-icon {
+  margin-right: var(--sofia-spacing-2);
+  margin-left: calc(-1 * var(--sofia-spacing-1));
+}
+
+.sofia-button--with-icon.sofia-button--icon-right .sofia-button-icon {
+  margin-left: var(--sofia-spacing-2);
+  margin-right: calc(-1 * var(--sofia-spacing-1));
+}
+
+/* Button Group */
+.sofia-button-group {
+  display: inline-flex;
+}
+
+.sofia-button-group .sofia-button {
+  border-radius: 0;
+}
+
+.sofia-button-group .sofia-button:first-child {
+  border-top-left-radius: var(--sofia-border-radius-md);
+  border-bottom-left-radius: var(--sofia-border-radius-md);
+}
+
+.sofia-button-group .sofia-button:last-child {
+  border-top-right-radius: var(--sofia-border-radius-md);
+  border-bottom-right-radius: var(--sofia-border-radius-md);
+}
+
+.sofia-button-group .sofia-button:not(:first-child) {
+  margin-left: -1px;
+}
+
+/* Full width button */
+.sofia-button--full-width {
+  width: 100%;
+}
+
+/* Loading state */
+.sofia-button--loading {
+  position: relative;
+  color: transparent !important;
+  pointer-events: none;
+}
+
+.sofia-button--loading::after {
+  content: '';
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  top: 50%;
+  left: 50%;
+  margin-top: -8px;
+  margin-left: -8px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-top-color: white;
+  animation: sofia-button-spin 0.7s linear infinite;
+}
+
+.sofia-button--secondary.sofia-button--loading::after,
+.sofia-button--tertiary.sofia-button--loading::after {
+  border: 2px solid rgba(var(--sofia-primary-600-rgb), 0.3);
+  border-top-color: var(--sofia-primary-600);
+}
+
+@keyframes sofia-button-spin {
+  to {
+    transform: rotate(360deg);
+  }
+} 

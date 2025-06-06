@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "react-calendar-timeline": "^0.30.0-beta.3",
+    "react-quill": "^2.0.0"
+  }
+}

@@ -1,0 +1,11 @@
+/* src/components/YearSection.css */
+.year-section {
+    margin-bottom: 2rem;
+  }
+  
+  .year-title {
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 0.5rem;
+    margin-bottom: 1rem;
+  }
+  

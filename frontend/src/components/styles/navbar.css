@@ -1,0 +1,139 @@
+/* 
+  Sofia - Navbar Styles
+  Styles for the navigation bar component
+*/
+
+/* Import variables */
+@import './variables.css';
+
+/* Base navbar */
+.sofia-navbar {
+  width: 100%;
+  height: var(--sofia-navbar-height, 64px);
+  background-color: var(--sofia-surface-primary);
+  color: var(--sofia-text-primary);
+  z-index: var(--sofia-z-index-navbar);
+}
+
+.sofia-navbar-sticky {
+  position: sticky;
+  top: 0;
+}
+
+.sofia-border-bottom {
+  border-bottom: 1px solid var(--sofia-border-light);
+}
+
+.sofia-navbar-logo {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+.sofia-navbar-logo img {
+  height: 32px;
+  width: auto;
+}
+
+/* Navbar items */
+.sofia-navbar-item {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  color: var(--sofia-text-secondary);
+  font-weight: var(--sofia-font-weight-medium);
+  text-decoration: none;
+  transition: all var(--sofia-transition-fast);
+}
+
+.sofia-navbar-item:hover {
+  color: var(--sofia-text-primary);
+  background-color: var(--sofia-neutral-50);
+  text-decoration: none;
+}
+
+.sofia-navbar-item-active {
+  color: var(--sofia-primary-600);
+  font-weight: var(--sofia-font-weight-semibold);
+}
+
+.sofia-navbar-item-active:hover {
+  color: var(--sofia-primary-700);
+}
+
+/* Navbar sections */
+.sofia-navbar-left, 
+.sofia-navbar-right {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+.sofia-navbar-left {
+  gap: var(--sofia-spacing-2);
+}
+
+.sofia-navbar-right {
+  gap: var(--sofia-spacing-4);
+}
+
+/* Navbar dropdown menu */
+.sofia-navbar-menu {
+  position: relative;
+  height: 100%;
+}
+
+.sofia-navbar-menu-button {
+  height: 100%;
+  padding: 0 var(--sofia-spacing-3);
+  color: var(--sofia-text-secondary);
+  font-weight: var(--sofia-font-weight-medium);
+  transition: all var(--sofia-transition-fast);
+}
+
+.sofia-navbar-menu-button:hover,
+.sofia-navbar-menu-button-active {
+  color: var(--sofia-text-primary);
+  background-color: var(--sofia-neutral-50);
+}
+
+.sofia-navbar-menu-arrow {
+  font-size: 8px;
+  margin-left: var(--sofia-spacing-1);
+  transition: transform var(--sofia-transition-fast);
+}
+
+.sofia-navbar-menu-button-active .sofia-navbar-menu-arrow {
+  transform: rotate(180deg);
+}
+
+.sofia-navbar-menu-items {
+  width: auto;
+  min-width: 200px;
+  border: 1px solid var(--sofia-border-light);
+}
+
+.sofia-navbar-menu-item {
+  color: var(--sofia-text-secondary);
+  transition: all var(--sofia-transition-fast);
+}
+
+.sofia-navbar-menu-item:hover {
+  color: var(--sofia-text-primary);
+  background-color: var(--sofia-neutral-50);
+  text-decoration: none;
+}
+
+/* Responsive navbar */
+@media (max-width: 768px) {
+  .sofia-navbar {
+    flex-wrap: wrap;
+    height: auto;
+    min-height: var(--sofia-navbar-height, 64px);
+  }
+  
+  .sofia-navbar-left, 
+  .sofia-navbar-right {
+    flex-wrap: wrap;
+  }
+} 

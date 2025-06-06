@@ -1,0 +1,28 @@
+.layout {
+  display: flex;
+  min-height: 100vh;
+  width: 100%;
+  position: relative;
+  overflow: hidden; /* Prevent scrolling on the outer container */
+}
+
+.main-area {
+  flex: 1;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: #fff;
+  margin-left: 120px; /* Match the sidebar width */
+  width: calc(100% - 120px);
+  min-height: 100vh;
+  box-shadow: none;
+  border-radius: 0;
+  position: relative;
+  overflow-y: auto; /* Enable vertical scrolling here */
+  height: 100vh; /* Ensure it takes full viewport height */
+}
+
+.content {
+  padding: 20px;
+  padding-top: 80px; /* Add space for fixed header */
+  min-height: calc(100vh - 80px);
+}

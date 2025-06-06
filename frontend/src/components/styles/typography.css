@@ -1,0 +1,212 @@
+/* 
+  Sofia - Typography Styles
+  Consistent text styles across the application
+*/
+
+/* Import variables */
+@import './variables.css';
+
+/* Base typography */
+body {
+  font-family: var(--sofia-font-family);
+  font-size: var(--sofia-font-size-base);
+  line-height: var(--sofia-line-height-normal);
+  color: var(--sofia-text-primary);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Headings */
+h1, .sofia-h1 {
+  font-size: var(--sofia-font-size-4xl);
+  font-weight: var(--sofia-font-weight-bold);
+  line-height: var(--sofia-line-height-tight);
+  margin-top: 0;
+  margin-bottom: var(--sofia-spacing-6);
+  color: var(--sofia-text-primary);
+}
+
+h2, .sofia-h2 {
+  font-size: var(--sofia-font-size-3xl);
+  font-weight: var(--sofia-font-weight-semibold);
+  line-height: var(--sofia-line-height-tight);
+  margin-top: 0;
+  margin-bottom: var(--sofia-spacing-5);
+  color: var(--sofia-text-primary);
+}
+
+h3, .sofia-h3 {
+  font-size: var(--sofia-font-size-2xl);
+  font-weight: var(--sofia-font-weight-semibold);
+  line-height: var(--sofia-line-height-tight);
+  margin-top: 0;
+  margin-bottom: var(--sofia-spacing-4);
+  color: var(--sofia-text-primary);
+}
+
+h4, .sofia-h4 {
+  font-size: var(--sofia-font-size-xl);
+  font-weight: var(--sofia-font-weight-semibold);
+  line-height: var(--sofia-line-height-tight);
+  margin-top: 0;
+  margin-bottom: var(--sofia-spacing-3);
+  color: var(--sofia-text-primary);
+}
+
+h5, .sofia-h5 {
+  font-size: var(--sofia-font-size-lg);
+  font-weight: var(--sofia-font-weight-semibold);
+  line-height: var(--sofia-line-height-tight);
+  margin-top: 0;
+  margin-bottom: var(--sofia-spacing-2);
+  color: var(--sofia-text-primary);
+}
+
+h6, .sofia-h6 {
+  font-size: var(--sofia-font-size-base);
+  font-weight: var(--sofia-font-weight-semibold);
+  line-height: var(--sofia-line-height-tight);
+  margin-top: 0;
+  margin-bottom: var(--sofia-spacing-2);
+  color: var(--sofia-text-primary);
+}
+
+/* Paragraphs */
+p, .sofia-paragraph {
+  margin-top: 0;
+  margin-bottom: var(--sofia-spacing-4);
+  line-height: var(--sofia-line-height-relaxed);
+}
+
+/* Small text */
+small, .sofia-small {
+  font-size: var(--sofia-font-size-sm);
+  line-height: var(--sofia-line-height-relaxed);
+}
+
+/* Link styling */
+a, .sofia-link {
+  color: var(--sofia-primary-600);
+  text-decoration: none;
+  transition: color var(--sofia-transition-fast);
+}
+
+a:hover, .sofia-link:hover {
+  color: var(--sofia-primary-800);
+  text-decoration: underline;
+}
+
+/* Text truncation */
+.sofia-truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.sofia-line-clamp-1,
+.sofia-line-clamp-2,
+.sofia-line-clamp-3 {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.sofia-line-clamp-1 {
+  -webkit-line-clamp: 1;
+}
+
+.sofia-line-clamp-2 {
+  -webkit-line-clamp: 2;
+}
+
+.sofia-line-clamp-3 {
+  -webkit-line-clamp: 3;
+}
+
+/* Text transform */
+.sofia-uppercase {
+  text-transform: uppercase;
+}
+
+.sofia-lowercase {
+  text-transform: lowercase;
+}
+
+.sofia-capitalize {
+  text-transform: capitalize;
+}
+
+/* Text decoration */
+.sofia-underline {
+  text-decoration: underline;
+}
+
+.sofia-no-underline {
+  text-decoration: none;
+}
+
+/* Font style */
+.sofia-italic {
+  font-style: italic;
+}
+
+.sofia-not-italic {
+  font-style: normal;
+}
+
+/* Letter spacing */
+.sofia-tracking-tight {
+  letter-spacing: -0.025em;
+}
+
+.sofia-tracking-normal {
+  letter-spacing: 0;
+}
+
+.sofia-tracking-wide {
+  letter-spacing: 0.025em;
+}
+
+/* Specialized text elements */
+.sofia-page-title {
+  font-size: var(--sofia-font-size-4xl);
+  font-weight: var(--sofia-font-weight-bold);
+  color: var(--sofia-text-primary);
+  margin-bottom: var(--sofia-spacing-6);
+  position: relative;
+  padding-bottom: var(--sofia-spacing-2);
+}
+
+.sofia-page-title:after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 60px;
+  height: 4px;
+  background-color: var(--sofia-primary-600);
+  border-radius: 2px;
+}
+
+.sofia-section-title {
+  font-size: var(--sofia-font-size-2xl);
+  font-weight: var(--sofia-font-weight-semibold);
+  color: var(--sofia-text-primary);
+  margin-bottom: var(--sofia-spacing-4);
+  padding-bottom: var(--sofia-spacing-2);
+  border-bottom: 1px solid var(--sofia-border-light);
+}
+
+.sofia-card-title {
+  font-size: var(--sofia-font-size-lg);
+  font-weight: var(--sofia-font-weight-semibold);
+  color: var(--sofia-text-primary);
+  margin-bottom: var(--sofia-spacing-2);
+}
+
+.sofia-subtitle {
+  font-size: var(--sofia-font-size-lg);
+  color: var(--sofia-text-secondary);
+  margin-top: calc(-1 * var(--sofia-spacing-2));
+  margin-bottom: var(--sofia-spacing-4);
+} 

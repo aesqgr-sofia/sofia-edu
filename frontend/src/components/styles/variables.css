@@ -1,0 +1,165 @@
+/* 
+  Sofia - Global CSS Variables
+  This file contains all the variables used throughout the application
+  to ensure consistent theming and ease of customization.
+*/
+
+:root {
+  /* Color Palette - Primary */
+  --sofia-primary-50: #e3f2fd;
+  --sofia-primary-100: #bbdefb;
+  --sofia-primary-200: #90caf9;
+  --sofia-primary-300: #64b5f6;
+  --sofia-primary-400: #42a5f5;
+  --sofia-primary-500: #2196f3;
+  --sofia-primary-600: #1e88e5;
+  --sofia-primary-700: #1976d2;
+  --sofia-primary-800: #1565c0;
+  --sofia-primary-900: #0d47a1;
+  
+  /* Color Palette - Secondary */
+  --sofia-secondary-50: #f3e5f5;
+  --sofia-secondary-100: #e1bee7;
+  --sofia-secondary-200: #ce93d8;
+  --sofia-secondary-300: #ba68c8;
+  --sofia-secondary-400: #ab47bc;
+  --sofia-secondary-500: #9c27b0;
+  --sofia-secondary-600: #8e24aa;
+  --sofia-secondary-700: #7b1fa2;
+  --sofia-secondary-800: #6a1b9a;
+  --sofia-secondary-900: #4a148c;
+  
+  /* Semantic Colors */
+  --sofia-success-light: #c8e6c9;
+  --sofia-success: #4caf50;
+  --sofia-success-dark: #2e7d32;
+  
+  --sofia-warning-light: #fff9c4;
+  --sofia-warning: #ffeb3b;
+  --sofia-warning-dark: #f57f17;
+  
+  --sofia-error-light: #ffcdd2;
+  --sofia-error: #f44336;
+  --sofia-error-dark: #c62828;
+  
+  --sofia-info-light: #e3f2fd;
+  --sofia-info: #2196f3;
+  --sofia-info-dark: #0d47a1;
+  
+  /* Neutral Colors */
+  --sofia-gray-50: #fafafa;
+  --sofia-gray-100: #f5f5f5;
+  --sofia-gray-200: #eeeeee;
+  --sofia-gray-300: #e0e0e0;
+  --sofia-gray-400: #bdbdbd;
+  --sofia-gray-500: #9e9e9e;
+  --sofia-gray-600: #757575;
+  --sofia-gray-700: #616161;
+  --sofia-gray-800: #424242;
+  --sofia-gray-900: #212121;
+  
+  /* Background Colors */
+  --sofia-background-primary: #ffffff;
+  --sofia-background-secondary: #f8fafc;
+  --sofia-background-tertiary: #f1f5f9;
+  
+  /* Text Colors */
+  --sofia-text-primary: #212121;
+  --sofia-text-secondary: #616161;
+  --sofia-text-tertiary: #9e9e9e;
+  --sofia-text-inverted: #ffffff;
+  
+  /* Border Colors */
+  --sofia-border-light: #e0e0e0;
+  --sofia-border-medium: #bdbdbd;
+  --sofia-border-dark: #757575;
+  
+  /* Shadow levels */
+  --sofia-shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --sofia-shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --sofia-shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --sofia-shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  
+  /* Spacing System */
+  --sofia-spacing-0: 0;
+  --sofia-spacing-1: 0.25rem;  /* 4px */
+  --sofia-spacing-2: 0.5rem;   /* 8px */
+  --sofia-spacing-3: 0.75rem;  /* 12px */
+  --sofia-spacing-4: 1rem;     /* 16px */
+  --sofia-spacing-5: 1.25rem;  /* 20px */
+  --sofia-spacing-6: 1.5rem;   /* 24px */
+  --sofia-spacing-8: 2rem;     /* 32px */
+  --sofia-spacing-10: 2.5rem;  /* 40px */
+  --sofia-spacing-12: 3rem;    /* 48px */
+  --sofia-spacing-16: 4rem;    /* 64px */
+  --sofia-spacing-20: 5rem;    /* 80px */
+  --sofia-spacing-24: 6rem;    /* 96px */
+  
+  /* Border Radius */
+  --sofia-radius-sm: 0.125rem; /* 2px */
+  --sofia-radius-md: 0.25rem;  /* 4px */
+  --sofia-radius-lg: 0.5rem;   /* 8px */
+  --sofia-radius-xl: 0.75rem;  /* 12px */
+  --sofia-radius-2xl: 1rem;    /* 16px */
+  --sofia-radius-full: 9999px;
+  
+  /* Typography */
+  --sofia-font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  
+  /* Font Sizes */
+  --sofia-font-size-xs: 0.75rem;   /* 12px */
+  --sofia-font-size-sm: 0.875rem;  /* 14px */
+  --sofia-font-size-base: 1rem;    /* 16px */
+  --sofia-font-size-lg: 1.125rem;  /* 18px */
+  --sofia-font-size-xl: 1.25rem;   /* 20px */
+  --sofia-font-size-2xl: 1.5rem;   /* 24px */
+  --sofia-font-size-3xl: 1.875rem; /* 30px */
+  --sofia-font-size-4xl: 2.25rem;  /* 36px */
+  
+  /* Font Weights */
+  --sofia-font-weight-light: 300;
+  --sofia-font-weight-normal: 400;
+  --sofia-font-weight-medium: 500;
+  --sofia-font-weight-semibold: 600;
+  --sofia-font-weight-bold: 700;
+  
+  /* Line Heights */
+  --sofia-line-height-none: 1;
+  --sofia-line-height-tight: 1.25;
+  --sofia-line-height-snug: 1.375;
+  --sofia-line-height-normal: 1.5;
+  --sofia-line-height-relaxed: 1.625;
+  --sofia-line-height-loose: 2;
+  
+  /* Transitions */
+  --sofia-transition-fast: 150ms;
+  --sofia-transition-normal: 300ms;
+  --sofia-transition-slow: 500ms;
+  
+  /* Z-Index */
+  --sofia-z-0: 0;
+  --sofia-z-10: 10;
+  --sofia-z-20: 20;
+  --sofia-z-30: 30;
+  --sofia-z-40: 40;
+  --sofia-z-50: 50;
+  --sofia-z-overlay: 100;
+  --sofia-z-modal: 1000;
+  --sofia-z-toast: 1100;
+  
+  /* Component-specific values */
+  --sofia-navbar-height: 60px;
+  --sofia-sidebar-width: 240px;
+}
+
+/* Dark mode theme - can be expanded later */
+.dark-theme {
+  /* Adjust color scheme for dark mode */
+  --sofia-background-primary: #121212;
+  --sofia-background-secondary: #1e1e1e;
+  --sofia-background-tertiary: #2d2d2d;
+  
+  --sofia-text-primary: #e0e0e0;
+  --sofia-text-secondary: #a0a0a0;
+  --sofia-text-tertiary: #6c6c6c;
+} 

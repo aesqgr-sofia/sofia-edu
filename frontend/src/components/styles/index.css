@@ -1,0 +1,27 @@
+/* 
+  Sofia - Main Stylesheet
+  Imports all stylesheets in the correct order
+*/
+
+/* Base styles */
+@import './variables.css';
+@import './base.css';
+@import './typography.css';
+@import './utilities.css';
+
+/* Layout components */
+@import './layout.css';
+
+/* UI components */
+@import './button.css';
+@import './navbar.css';
+
+/* Add additional component stylesheets here */
+/* For example:
+@import './form.css';
+@import './nav.css';
+@import './table.css';
+@import './modal.css';
+@import './card.css';
+@import './alert.css';
+*/ 
