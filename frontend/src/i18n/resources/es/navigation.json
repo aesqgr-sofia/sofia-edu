@@ -1,0 +1,19 @@
+{
+  "dashboard": "Panel de Control",
+  "content": "Contenido",
+  "planner": "Planificador",
+  "account": "Cuenta",
+  "logout": "Cerrar Sesión",
+  "subjectLearningEditor": "Editor de Aprendizaje por Asignaturas",
+  "moduleCreation": "Creación de Módulos",
+  "learningSituationEditor": "Editor de Situaciones de Aprendizaje",
+  "library": "Biblioteca",
+  "showLibrary": "Mostrar Biblioteca",
+  "hideLibrary": "Ocultar Biblioteca",
+  "closeLibrary": "Cerrar Biblioteca",
+  "learningSituations": "Situaciones de Aprendizaje",
+  "modules": "Módulos",
+  "subjects": "Asignaturas",
+  "years": "Años",
+  "schools": "Centros Educativos"
+} 

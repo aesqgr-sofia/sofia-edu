@@ -1,0 +1,10 @@
+{
+  "loadingSchoolData": "Loading school data...",
+  "missingData": "Missing Data",
+  "noSchoolData": "No school data found. Please set up your school first.",
+  "schoolYearPlanner": "School Year Planner",
+  "noAcademicYears": "No academic years found. Please create an academic year first.",
+  "noSubjectsForYear": "No subjects found for this year.",
+  "schoolPlanner": "School Planner",
+  "schoolYearPlanner": "School Year Planner"
+} 

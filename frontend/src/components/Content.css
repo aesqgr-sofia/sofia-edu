@@ -365,6 +365,20 @@ button[type="submit"]:hover {
   color: #333;
   font-size: 0.95rem;
   padding-right: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.module-selection-card h4 .evaluable-icon {
+  font-size: 0.9rem;
+  cursor: help;
+  user-select: none;
+  transition: transform 0.2s ease;
+}
+
+.module-selection-card h4 .evaluable-icon:hover {
+  transform: scale(1.1);
 }
 
 .module-selection-card p {

@@ -3,10 +3,13 @@ import { AuthContext } from '../contexts/AuthContext';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import Layout from '../components/Layout';
+import Sidebar from '../components/Sidebar';
+import { useTranslation } from 'react-i18next';
 import { Button, Card, Page } from '../components/common';
 import './Planner.css';
 
 function Planner() {
+  const { t } = useTranslation(['planner', 'common', 'navigation']);
   const { authTokens, user, authToken, logout } = useContext(AuthContext);
   const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(true);
@@ -183,7 +186,7 @@ function Planner() {
     if (isLoading) {
       return (
         <Page className="sofia-py-4">
-          <div className="planner-loading">Loading school data...</div>
+          <div className="planner-loading">{t('planner:loadingSchoolData')}</div>
         </Page>
       );
     }
@@ -193,19 +196,17 @@ function Planner() {
       
       return (
         <Page className="sofia-py-4">
-          <Card title="Error">
+          <Card title={t('common:error')}>
             <p>{error}</p>
             {isAuthError && (
               <Button 
                 variant="primary"
                 onClick={() => {
-                  // Clear any existing tokens
                   if (logout) logout();
-                  // Redirect to login page
                   navigate('/login');
                 }}
               >
-                Login Again
+                {t('common:loginAgain')}
               </Button>
             )}
           </Card>
@@ -216,8 +217,8 @@ function Planner() {
     if (!schoolData) {
       return (
         <Page className="sofia-py-4">
-          <Card title="Missing Data">
-            <p>No school data found. Please set up your school first.</p>
+          <Card title={t('planner:missingData')}>
+            <p>{t('planner:noSchoolData')}</p>
           </Card>
         </Page>
       );
@@ -225,13 +226,13 @@ function Planner() {
 
     return (
       <Page 
-        title="School Year Planner"
+        title={t('planner:schoolYearPlanner')}
         className="sofia-py-4"
       >
         {schoolYears.length === 0 ? (
           <Card>
             <div className="no-years-message">
-              No academic years found. Please create an academic year first.
+              {t('planner:noAcademicYears')}
             </div>
           </Card>
         ) : (
@@ -248,7 +249,7 @@ function Planner() {
                     <ul>
                       {year.subjects.map(subject => (
                         <li key={subject.id} className="subject-item" onClick={(e) => {
-                          e.stopPropagation(); // Prevent triggering year click
+                          e.stopPropagation();
                           handleSubjectClick(subject);
                         }}>
                           <span className="subject-name">{subject.name}</span>
@@ -260,7 +261,7 @@ function Planner() {
                     </ul>
                   ) : (
                     <div className="no-subjects-message">
-                      No subjects found for this year.
+                      {t('planner:noSubjectsForYear')}
                     </div>
                   )}
                 </div>
@@ -274,7 +275,7 @@ function Planner() {
 
   // Return the component wrapped in Layout
   return (
-    <Layout schoolName={schoolData?.name || "School Planner"}>
+    <Layout schoolName={schoolData?.name || t('planner:schoolPlanner')} sidebar={<Sidebar schoolName={schoolData?.name} />}>
       {renderContent()}
     </Layout>
   );

@@ -10,8 +10,8 @@ import Account from './pages/Account';
 import Content from './pages/Content';
 import Planner from './pages/Planner';
 import SubjectLearningDragDrop from './pages/SubjectLearningDragDrop';
-import LearningSituationEditor from './pages/LearningSituationEditor';
-import ModuleCreationPage from './components/ModuleCreationPage';
+import LearningSituationEditor from './pages/LearningSituationEditorRefactored';
+import ModuleCreationPage from './components/ModuleCreationPageRefactored';
 
 // PrivateRoute component
 const PrivateRoute = ({ children }) => {

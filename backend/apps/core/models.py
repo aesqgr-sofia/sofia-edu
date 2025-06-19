@@ -35,7 +35,9 @@ class SpecificCompetences(models.Model):
         blank=True,
         null=True,
         default=list,
-        help_text="List of evaluation criteria objects with id and description"
+        help_text="List of evaluation criteria objects with id, code, and "
+                  "description. Each criterion should have a unique code "
+                  "within the competence."
     )
 
     def __str__(self):
@@ -164,6 +166,10 @@ class Module(models.Model):
         null=True,
         blank=True,
         help_text="Session length in hours (e.g., 1.5, 2, 2.5)"
+    )
+    evaluable = models.BooleanField(
+        default=False,
+        help_text="Whether this module can be evaluated by the teacher"
     )
     specific_competences = ArrayField(
         base_field=models.UUIDField(), 

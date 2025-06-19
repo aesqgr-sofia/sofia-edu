@@ -1,0 +1,21 @@
+{
+  "dashboard": "Dashboard",
+  "content": "Content",
+  "planner": "Planner",
+  "account": "Account",
+  "logout": "Logout",
+  "subjectLearningEditor": "Subject Learning Editor",
+  "moduleCreation": "Module Creation",
+  "learningSituationEditor": "Learning Situation Editor",
+  "library": "Library",
+  "showLibrary": "Show Library",
+  "hideLibrary": "Hide Library",
+  "closeLibrary": "Close Library",
+  "learningSituations": "Learning Situations",
+  "modules": "Modules",
+  "subjects": "Subjects",
+  "years": "Years",
+  "schools": "Schools",
+  "show": "Show",
+  "hide": "Hide"
+} 

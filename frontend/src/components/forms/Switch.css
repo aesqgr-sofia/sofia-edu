@@ -1,0 +1,135 @@
+/* Switch Component Styles */
+.sofia-switch-container {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.sofia-switch-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  user-select: none;
+  margin: 0;
+}
+
+.sofia-switch-input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.sofia-switch {
+  position: relative;
+  display: inline-block;
+  background-color: #cbd5e0;
+  border-radius: 50px;
+  transition: background-color 0.2s ease;
+  cursor: pointer;
+}
+
+.sofia-switch--small {
+  width: 32px;
+  height: 18px;
+}
+
+.sofia-switch--medium {
+  width: 44px;
+  height: 24px;
+}
+
+.sofia-switch--large {
+  width: 56px;
+  height: 32px;
+}
+
+.sofia-switch-thumb {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  background-color: white;
+  border-radius: 50%;
+  transition: transform 0.2s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.sofia-switch--small .sofia-switch-thumb {
+  width: 14px;
+  height: 14px;
+}
+
+.sofia-switch--medium .sofia-switch-thumb {
+  width: 20px;
+  height: 20px;
+}
+
+.sofia-switch--large .sofia-switch-thumb {
+  width: 28px;
+  height: 28px;
+}
+
+/* Checked state */
+.sofia-switch--checked {
+  background-color: #4299e1;
+}
+
+.sofia-switch--checked.sofia-switch--small .sofia-switch-thumb {
+  transform: translateX(14px);
+}
+
+.sofia-switch--checked.sofia-switch--medium .sofia-switch-thumb {
+  transform: translateX(20px);
+}
+
+.sofia-switch--checked.sofia-switch--large .sofia-switch-thumb {
+  transform: translateX(24px);
+}
+
+/* Disabled state */
+.sofia-switch--disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.sofia-switch--disabled .sofia-switch-label {
+  cursor: not-allowed;
+}
+
+/* Focus state */
+.sofia-switch-input:focus + .sofia-switch {
+  outline: 2px solid #4299e1;
+  outline-offset: 2px;
+}
+
+/* Hover state */
+.sofia-switch:hover:not(.sofia-switch--disabled) {
+  background-color: #a0aec0;
+}
+
+.sofia-switch--checked:hover:not(.sofia-switch--disabled) {
+  background-color: #3182ce;
+}
+
+/* Text label */
+.sofia-switch-text {
+  font-size: 14px;
+  color: #2d3748;
+  font-weight: 500;
+}
+
+/* Responsive adjustments */
+@media (max-width: 640px) {
+  .sofia-switch-container {
+    gap: 6px;
+  }
+  
+  .sofia-switch-label {
+    gap: 6px;
+  }
+  
+  .sofia-switch-text {
+    font-size: 13px;
+  }
+} 

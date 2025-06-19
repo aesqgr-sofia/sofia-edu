@@ -76,6 +76,7 @@
 .nav-button svg {
   width: 16px;
   height: 16px;
+  margin-right: 0;
 }
 
 .library-button {
@@ -237,6 +238,9 @@
   font-size: 1rem;
   color: #2d3748;
   padding-right: 25px; /* Space for remove button */
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
 .selected-module-card p {
@@ -301,36 +305,41 @@
 
 .cancel-button,
 .save-button {
-  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  padding: 8px 12px;
   border-radius: 4px;
   font-weight: 500;
   cursor: pointer;
-  transition: all 0.2s;
+  transition: background-color 0.2s;
+  gap: 8px;
+  font-size: 14px;
 }
 
 .cancel-button {
-  background-color: #e2e8f0;
-  color: #4a5568;
+  background-color: #2c5282;
+  color: white;
   border: none;
 }
 
 .cancel-button:hover {
-  background-color: #cbd5e0;
+  background-color: #3182ce;
 }
 
 .save-button {
-  background-color: #3182ce;
+  background-color: #2c5282;
   color: white;
   border: none;
 }
 
 .save-button:hover {
-  background-color: #2c5282;
+  background-color: #3182ce;
 }
 
 .save-button:disabled {
-  background-color: #90cdf4;
+  background-color: #a0aec0;
   cursor: not-allowed;
+  color: #666;
 }
 
 /* Modules Library Panel */
@@ -459,6 +468,24 @@
   margin: 0 0 8px 0;
   font-size: 1rem;
   color: #2d3748;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.library-item h3 .evaluable-icon {
+  font-size: 0.9rem;
+  cursor: help;
+  user-select: none;
+  transition: transform 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 18px;
+}
+
+.library-item h3 .evaluable-icon:hover {
+  transform: scale(1.1);
 }
 
 .library-item p {
@@ -472,6 +499,76 @@
   display: -webkit-box;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
+}
+
+/* Module action buttons */
+.module-actions {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 8px;
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid #e2e8f0;
+  width: 100%;
+  min-height: 36px;
+}
+
+.module-actions .action-button {
+  width: 28px;
+  height: 28px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  color: #7f8c8d;
+  transition: all 0.2s ease;
+  padding: 0;
+  opacity: 1;
+}
+
+.module-actions .edit-button {
+  color: #7f8c8d;
+}
+
+.module-actions .delete-button {
+  color: #7f8c8d;
+}
+
+.module-actions .action-button svg {
+  width: 16px;
+  height: 16px;
+  pointer-events: none;
+}
+
+.module-actions .edit-button:hover {
+  color: #3498db;
+  background-color: rgba(52, 152, 219, 0.1);
+}
+
+.module-actions .delete-button:hover {
+  color: #e74c3c;
+  background-color: rgba(231, 76, 60, 0.1);
+}
+
+/* Ensure buttons are contained within the actions div */
+.library-item {
+  position: relative;
+}
+
+.module-actions {
+  position: relative;
+  z-index: 1;
+}
+
+/* Prevent any absolute positioning conflicts */
+.module-actions .action-button {
+  position: static !important;
+  float: none !important;
 }
 
 .item-status {
@@ -723,4 +820,19 @@
   background-color: #fef5e7;
   color: #744210;
   border-color: #f6d55c;
+}
+
+.evaluable-icon {
+  font-size: 1rem;
+  cursor: help;
+  user-select: none;
+  transition: transform 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 20px;
+}
+
+.evaluable-icon:hover {
+  transform: scale(1.1);
 } 

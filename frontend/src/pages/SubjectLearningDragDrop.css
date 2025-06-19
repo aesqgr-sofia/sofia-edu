@@ -1069,10 +1069,21 @@
   flex-shrink: 0;
 }
 
+/* Editor content layout for Subject page */
+.subject-learning-editor .editor-content {
+  display: flex;
+  flex: 1;
+  position: relative;
+  margin-top: 50px; /* Account for fixed navbar */
+  min-height: calc(100vh - 110px); /* Account for navbar (50px) + main header (60px) */
+  overflow-y: auto; /* Allow vertical scrolling */
+  padding-bottom: 40px; /* Add bottom padding for better scrolling */
+}
+
 .nav-button {
   display: flex;
   align-items: center;
-  background-color: #ffffff !important;
+  background-color: #2c5282;
   border: none;
   color: white;
   padding: 8px 12px;
@@ -1085,7 +1096,7 @@
 }
 
 .nav-button:hover {
-  background-color: #dfdfdf !important;
+  background-color: #3182ce;
 }
 
 .nav-button svg {
@@ -1621,44 +1632,78 @@
   color: #2d3748; /* Almost black when clicked */
 }
 
-/* Library item action buttons styling */
-.library-item .item-actions {
-  position: absolute;
-  top: 12px;
-  right: 12px;
+/* Situation action buttons at bottom of cards */
+.situation-actions {
   display: flex;
-  gap: 6px;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 8px;
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid #e2e8f0;
+  width: 100%;
+  min-height: 36px;
 }
 
-.item-action-button {
-  background: none;
+.situation-actions .action-button {
+  width: 28px;
+  height: 28px;
   border: none;
-  padding: 4px;
+  background: none;
   cursor: pointer;
-  color: #a0aec0; /* Subtle gray color */
-  transition: all 0.2s ease;
   display: flex;
   align-items: center;
   justify-content: center;
-  opacity: 0.7;
-}
-
-.item-action-button:hover {
+  border-radius: 4px;
+  color: #7f8c8d;
+  transition: all 0.2s ease;
+  padding: 0;
   opacity: 1;
-  color: #4a5568; /* Darker on hover but still subtle */
 }
 
-.item-action-button.edit:hover {
-  color: #3182ce; /* Subtle blue on hover */
+.situation-actions .action-button svg {
+  width: 16px;
+  height: 16px;
+  pointer-events: none;
 }
 
-.item-action-button.delete:hover {
-  color: #e53e3e; /* Subtle red on hover */
+.situation-actions .edit-button {
+  color: #7f8c8d;
 }
 
-/* Fix positioning for item title to accommodate the buttons */
+.situation-actions .delete-button {
+  color: #7f8c8d;
+}
+
+.situation-actions .edit-button:hover {
+  color: #3498db;
+  background-color: rgba(52, 152, 219, 0.1);
+}
+
+.situation-actions .delete-button:hover {
+  color: #e74c3c;
+  background-color: rgba(231, 76, 60, 0.1);
+}
+
+/* Ensure buttons are contained within the actions div */
+.library-item {
+  position: relative;
+}
+
+.situation-actions {
+  position: relative;
+  z-index: 1;
+}
+
+/* Prevent any absolute positioning conflicts */
+.situation-actions .action-button {
+  position: static !important;
+  float: none !important;
+}
+
+/* Fix positioning for item title - no longer need padding since buttons moved to bottom */
 .library-item .item-title {
-  padding-right: 60px; /* Make space for the action buttons */
   margin-top: 0;
   margin-bottom: 8px;
   font-size: 16px;

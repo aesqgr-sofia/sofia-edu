@@ -1,0 +1,9 @@
+{
+  "loadingSchoolData": "Cargando datos del centro...",
+  "missingData": "Datos faltantes",
+  "noSchoolData": "No se encontraron datos del centro. Por favor, configura tu centro primero.",
+  "schoolYearPlanner": "Planificador del Año Escolar",
+  "noAcademicYears": "No se encontraron años académicos. Por favor, crea un año académico primero.",
+  "noSubjectsForYear": "No se encontraron asignaturas para este año.",
+  "schoolPlanner": "Planificador Escolar"
+} 

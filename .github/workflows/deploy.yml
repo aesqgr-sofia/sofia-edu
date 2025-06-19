@@ -1,0 +1,192 @@
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main ]
+
+env:
+  AWS_REGION: eu-west-1  # Change to your preferred region
+  
+jobs:
+  test-backend:
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:14
+        env:
+          POSTGRES_PASSWORD: postgres
+          POSTGRES_DB: sofia_test
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+        ports:
+          - 5432:5432
+
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.11'
+        
+    - name: Cache pip dependencies
+      uses: actions/cache@v3
+      with:
+        path: ~/.cache/pip
+        key: ${{ runner.os }}-pip-${{ hashFiles('backend/requirements.txt') }}
+        restore-keys: |
+          ${{ runner.os }}-pip-
+          
+    - name: Install dependencies
+      run: |
+        cd backend
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+        
+    - name: Run Django tests
+      env:
+        DATABASE_URL: postgres://postgres:postgres@localhost:5432/sofia_test
+        DJANGO_SETTINGS_MODULE: sofia_project.settings
+        SECRET_KEY: test-secret-key-for-ci
+      run: |
+        cd backend
+        python manage.py collectstatic --noinput
+        python manage.py test
+
+  test-frontend:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Set up Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+        cache: 'npm'
+        cache-dependency-path: frontend/package-lock.json
+        
+    - name: Install dependencies
+      run: |
+        cd frontend
+        npm ci
+        
+    - name: Run tests
+      run: |
+        cd frontend
+        npm test -- --coverage --watchAll=false
+        
+    - name: Build frontend
+      run: |
+        cd frontend
+        npm run build
+
+  deploy-dev:
+    needs: [test-backend, test-frontend]
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/develop' || github.ref == 'refs/heads/main'
+    environment: development
+    
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Configure AWS credentials
+      uses: aws-actions/configure-aws-credentials@v4
+      with:
+        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        aws-region: ${{ env.AWS_REGION }}
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+        cache: 'npm'
+        cache-dependency-path: frontend/package-lock.json
+
+    - name: Build frontend for dev
+      run: |
+        cd frontend
+        npm ci
+        REACT_APP_API_URL=${{ secrets.DEV_API_URL }} npm run build
+
+    - name: Deploy frontend to S3 (Dev)
+      run: |
+        aws s3 sync frontend/build/ s3://${{ secrets.DEV_S3_BUCKET }}/ --delete
+        aws cloudfront create-invalidation --distribution-id ${{ secrets.DEV_CLOUDFRONT_ID }} --paths "/*"
+
+    - name: Deploy backend to Elastic Beanstalk (Dev)
+      run: |
+        cd backend
+        # Create deployment package
+        zip -r deploy.zip . -x "*.git*" "*__pycache__*" "*.pyc" "*venv*" "*node_modules*"
+        
+        # Deploy to Elastic Beanstalk
+        aws elasticbeanstalk create-application-version \
+          --application-name sofia-backend \
+          --version-label ${{ github.sha }}-dev \
+          --source-bundle S3Bucket=${{ secrets.EB_S3_BUCKET }},S3Key=sofia-backend-dev-${{ github.sha }}.zip
+          
+        aws s3 cp deploy.zip s3://${{ secrets.EB_S3_BUCKET }}/sofia-backend-dev-${{ github.sha }}.zip
+        
+        aws elasticbeanstalk update-environment \
+          --application-name sofia-backend \
+          --environment-name sofia-backend-dev \
+          --version-label ${{ github.sha }}-dev
+
+  deploy-prod:
+    needs: [deploy-dev]
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
+    environment: production
+    
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Configure AWS credentials
+      uses: aws-actions/configure-aws-credentials@v4
+      with:
+        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        aws-region: ${{ env.AWS_REGION }}
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+        cache: 'npm'
+        cache-dependency-path: frontend/package-lock.json
+
+    - name: Build frontend for prod
+      run: |
+        cd frontend
+        npm ci
+        REACT_APP_API_URL=${{ secrets.PROD_API_URL }} npm run build
+
+    - name: Deploy frontend to S3 (Prod)
+      run: |
+        aws s3 sync frontend/build/ s3://${{ secrets.PROD_S3_BUCKET }}/ --delete
+        aws cloudfront create-invalidation --distribution-id ${{ secrets.PROD_CLOUDFRONT_ID }} --paths "/*"
+
+    - name: Deploy backend to Elastic Beanstalk (Prod)
+      run: |
+        cd backend
+        # Create deployment package
+        zip -r deploy.zip . -x "*.git*" "*__pycache__*" "*.pyc" "*venv*" "*node_modules*"
+        
+        # Deploy to Elastic Beanstalk
+        aws elasticbeanstalk create-application-version \
+          --application-name sofia-backend \
+          --version-label ${{ github.sha }}-prod \
+          --source-bundle S3Bucket=${{ secrets.EB_S3_BUCKET }},S3Key=sofia-backend-prod-${{ github.sha }}.zip
+          
+        aws s3 cp deploy.zip s3://${{ secrets.EB_S3_BUCKET }}/sofia-backend-prod-${{ github.sha }}.zip
+        
+        aws elasticbeanstalk update-environment \
+          --application-name sofia-backend \
+          --environment-name sofia-backend-prod \
+          --version-label ${{ github.sha }}-prod 

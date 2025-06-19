@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './Content.css';
 import { AuthContext } from '../contexts/AuthContext';
 import { Form } from 'react-bootstrap';
+import { useTranslation } from 'react-i18next';
 
 const LearningSituationModal = ({
   showModal,
@@ -26,6 +27,7 @@ const LearningSituationModal = ({
   fixedSubjectId,
   hideYearSubject = false,
 }) => {
+  const { t } = useTranslation(['modules', 'common']);
   const [availableSubjects, setAvailableSubjects] = useState([]);
   const [yearOptions, setYearOptions] = useState([]);
   
@@ -76,6 +78,21 @@ const LearningSituationModal = ({
     if (!text) return '';
     const firstLine = text.split('\n')[0];
     return firstLine.length > 100 ? firstLine.substring(0, 97) + '...' : firstLine;
+  };
+
+  // Determine the icon and hint based on evaluable status
+  const getEvaluableIcon = (module) => {
+    if (module.evaluable) {
+      return {
+        icon: '📝',
+        title: t('modules:evaluableIcon')
+      };
+    } else {
+      return {
+        icon: '🔒',
+        title: t('modules:notEvaluableIcon')
+      };
+    }
   };
 
   return (
@@ -165,7 +182,15 @@ const LearningSituationModal = ({
                         className={`status-indicator module-selection-status ${module.linked ? 'linked' : 'unlinked'}`}
                         title={module.linked ? 'Linked to another Learning Situation' : 'Not linked to any Learning Situation'}
                       />
-                      <h4>{module.title}</h4>
+                      <h4>
+                        <span 
+                          className="evaluable-icon" 
+                          title={getEvaluableIcon(module).title}
+                        >
+                          {getEvaluableIcon(module).icon}
+                        </span>
+                        {module.title}
+                      </h4>
                       <p>{getFirstLine(module.description)}</p>
                       <svg
                         className="module-selection-check"

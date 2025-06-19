@@ -112,6 +112,7 @@ class ModuleSerializer(serializers.ModelSerializer):
             'date_start',
             'date_end',
             'session_length',
+            'evaluable',
             'specific_competences',
             'selected_criteria',
             'basic_knowledge',

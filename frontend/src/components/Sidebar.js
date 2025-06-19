@@ -1,5 +1,6 @@
 // src/components/Sidebar.js
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import './Sidebar.css';
 import plannerIcon from './planner_icon.png';
 import homeIcon from './home_icon.png';
@@ -8,11 +9,12 @@ import defaultSchoolLogo from './logo_eliana.png';
 import contentIcon from './content_icon.png';
 
 const Sidebar = ({ schoolName, schoolLogo = defaultSchoolLogo }) => {
+  const { t } = useTranslation(['navigation']);
   const navItems = [
-    { title: 'Home', icon: homeIcon, link: '/dashboard' },
-    { title: 'Content', icon: contentIcon, link: '/content' },
-    { title: 'Planner', icon: plannerIcon, link: '/planner' },
-    { title: 'Accounts', icon: accountsIcon, link: '/account' },
+    { title: t('navigation:dashboard'), icon: homeIcon, link: '/dashboard' },
+    { title: t('navigation:content'), icon: contentIcon, link: '/content' },
+    { title: t('navigation:planner'), icon: plannerIcon, link: '/planner' },
+    { title: t('navigation:account'), icon: accountsIcon, link: '/account' },
 
     // Add more sections as needed...
   ];

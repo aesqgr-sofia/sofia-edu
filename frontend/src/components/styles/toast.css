@@ -1,0 +1,156 @@
+/* Toast Notification Styles */
+.sofia-toast-container {
+  position: fixed;
+  z-index: 10000;
+  pointer-events: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 1rem;
+  max-width: 400px;
+}
+
+/* Position variants */
+.sofia-toast-container--top-right {
+  top: 0;
+  right: 0;
+}
+
+.sofia-toast-container--top-left {
+  top: 0;
+  left: 0;
+}
+
+.sofia-toast-container--top-center {
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.sofia-toast-container--bottom-right {
+  bottom: 0;
+  right: 0;
+}
+
+.sofia-toast-container--bottom-left {
+  bottom: 0;
+  left: 0;
+}
+
+.sofia-toast-container--bottom-center {
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.sofia-toast {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 1rem;
+  border-radius: 0.375rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  pointer-events: auto;
+  min-width: 300px;
+  opacity: 0;
+  transform: translateX(100%);
+  transition: all 0.3s ease-in-out;
+  background: white;
+  border-left: 4px solid;
+}
+
+.sofia-toast--visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.sofia-toast--removing {
+  opacity: 0;
+  transform: translateX(100%);
+}
+
+/* Toast type variants */
+.sofia-toast--success {
+  border-left-color: #28a745;
+  background-color: #f8fff9;
+}
+
+.sofia-toast--error {
+  border-left-color: #dc3545;
+  background-color: #fff8f8;
+}
+
+.sofia-toast--warning {
+  border-left-color: #ffc107;
+  background-color: #fffcf5;
+}
+
+.sofia-toast--info {
+  border-left-color: #17a2b8;
+  background-color: #f8fcfd;
+}
+
+.sofia-toast-content {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex: 1;
+}
+
+.sofia-toast-icon {
+  font-size: 1rem;
+  font-weight: bold;
+  flex-shrink: 0;
+}
+
+.sofia-toast--success .sofia-toast-icon {
+  color: #28a745;
+}
+
+.sofia-toast--error .sofia-toast-icon {
+  color: #dc3545;
+}
+
+.sofia-toast--warning .sofia-toast-icon {
+  color: #ffc107;
+}
+
+.sofia-toast--info .sofia-toast-icon {
+  color: #17a2b8;
+}
+
+.sofia-toast-message {
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: #333;
+}
+
+.sofia-toast-close {
+  background: none;
+  border: none;
+  font-size: 1.25rem;
+  color: #999;
+  cursor: pointer;
+  padding: 0;
+  margin-left: 0.5rem;
+  flex-shrink: 0;
+  transition: color 0.2s ease;
+}
+
+.sofia-toast-close:hover {
+  color: #666;
+}
+
+/* Responsive adjustments */
+@media (max-width: 480px) {
+  .sofia-toast-container {
+    left: 0.5rem !important;
+    right: 0.5rem !important;
+    transform: none !important;
+    max-width: none;
+  }
+  
+  .sofia-toast {
+    min-width: auto;
+  }
+} 

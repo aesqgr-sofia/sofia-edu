@@ -1,0 +1,21 @@
+{
+  "loadingContent": "Loading content...",
+  "error": "Error",
+  "tryAgain": "Try Again",
+  "missingData": "Missing Data",
+  "noSchoolData": "No school data available.",
+  "contentManagement": "Content Management",
+  "filters": "Filters",
+  "year": "Year",
+  "allYears": "All Years",
+  "subject": "Subject",
+  "allSubjects": "All Subjects",
+  "moduleStatus": "Module Status",
+  "allModules": "All Modules",
+  "linked": "Linked to Learning Situation",
+  "unlinked": "Not Linked",
+  "learningSituations": "Learning Situations",
+  "addLearningSituation": "Add Learning Situation",
+  "modules": "Modules",
+  "addModule": "Add Module"
+} 

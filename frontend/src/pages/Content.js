@@ -8,8 +8,10 @@ import ConfirmDialog from '../components/ConfirmDialog';
 import { Button, Card, Page } from '../components/common';
 import '../components/Content.css';
 import { useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 const Content = () => {
+  const { t } = useTranslation(['content', 'common', 'navigation']);
   const { authToken, user } = useContext(AuthContext);
   const [schoolData, setSchoolData] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -485,11 +487,11 @@ const Content = () => {
 
   if (loading) {
     return (
-      <Layout schoolName="Content">
+      <Layout schoolName={t('content:contentManagement')}>
         <Page className="sofia-py-4">
           <div className="loading-spinner">
             <div className="spinner"></div>
-            <p>Loading content...</p>
+            <p>{t('content:loadingContent')}</p>
           </div>
         </Page>
       </Layout>
@@ -498,9 +500,9 @@ const Content = () => {
   
   if (error) {
     return (
-      <Layout schoolName="Content">
+      <Layout schoolName={t('content:contentManagement')}>
         <Page className="sofia-py-4">
-          <Card title="Error">
+          <Card title={t('content:error')}>
             <p>{error}</p>
             <Button 
               variant="primary" 
@@ -510,7 +512,7 @@ const Content = () => {
                 fetchModules();
               }}
             >
-              Try Again
+              {t('content:tryAgain')}
             </Button>
           </Card>
         </Page>
@@ -520,10 +522,10 @@ const Content = () => {
   
   if (!schoolData) {
     return (
-      <Layout schoolName="Content">
+      <Layout schoolName={t('content:contentManagement')}>
         <Page className="sofia-py-4">
-          <Card title="Missing Data">
-            <p>No school data available.</p>
+          <Card title={t('content:missingData')}>
+            <p>{t('content:noSchoolData')}</p>
           </Card>
         </Page>
       </Layout>
@@ -532,17 +534,17 @@ const Content = () => {
 
   return (
     <Layout schoolName={schoolData.name}>
-      <Page title="Content Management" className="content-page sofia-py-4">
+      <Page title={t('content:contentManagement')} className="content-page sofia-py-4">
         {/* Filters */}
-        <Card title="Filters" className="sofia-mb-4">
+        <Card title={t('content:filters')} className="sofia-mb-4">
           <div className="filters sofia-d-flex sofia-gap-4">
             <div className="filter-item">
-              <label>Year:</label>
+              <label>{t('common:year')}</label>
               <select
                 value={selectedYear}
                 onChange={(e) => setSelectedYear(e.target.value)}
               >
-                <option value="">All Years</option>
+                <option value="">{t('content:allYears')}</option>
                 {schoolData.years.map((year) => (
                   <option key={year.id} value={year.id}>
                     {year.name}{year.division ? ` - ${year.division}` : ''}
@@ -551,13 +553,13 @@ const Content = () => {
               </select>
             </div>
             <div className="filter-item">
-              <label>Subject:</label>
+              <label>{t('common:subject')}</label>
               <select
                 value={selectedSubject}
                 onChange={(e) => setSelectedSubject(e.target.value)}
                 disabled={!selectedYear}
               >
-                <option value="">All Subjects</option>
+                <option value="">{t('content:allSubjects')}</option>
                 {availableSubjects.map((subject) => (
                   <option key={subject.id} value={subject.id}>
                     {subject.name}
@@ -566,14 +568,14 @@ const Content = () => {
               </select>
             </div>
             <div className="filter-item">
-              <label>Module Status:</label>
+              <label>{t('content:moduleStatus')}</label>
               <select
                 value={moduleStatusFilter}
                 onChange={(e) => setModuleStatusFilter(e.target.value)}
               >
-                <option value="all">All Modules</option>
-                <option value="linked">Linked to Learning Situation</option>
-                <option value="unlinked">Not Linked</option>
+                <option value="all">{t('content:allModules')}</option>
+                <option value="linked">{t('content:linked')}</option>
+                <option value="unlinked">{t('content:unlinked')}</option>
               </select>
             </div>
           </div>
@@ -584,13 +586,13 @@ const Content = () => {
           {/* Learning Situations Column */}
           <div className="column">
             <Card 
-              title="Learning Situations" 
+              title={t('common:learningSituations')} 
               headerActions={
                 <Button 
                   variant="primary"
                   onClick={() => navigate('/learning-situation/new')}
                 >
-                  Add Learning Situation
+                  {t('common:add')} {t('common:learningSituation')}
                 </Button>
               }
             >
@@ -628,7 +630,7 @@ const Content = () => {
                       title={situation.title}
                     >
                       <div className="card-content">
-                        <p>{situation.description}</p>
+                        <div dangerouslySetInnerHTML={{ __html: situation.description }} />
                         <div className="card-chips sofia-d-flex sofia-gap-2 sofia-mt-2">
                           {situation.year && (
                             <span className="chip year-chip">
@@ -647,7 +649,7 @@ const Content = () => {
                     </Card>
                   ))
                 ) : (
-                  <p>No learning situations available.</p>
+                  <p>{t('content:noLearningSituations')}</p>
                 )}
               </div>
             </Card>
@@ -656,13 +658,13 @@ const Content = () => {
           {/* Modules Column */}
           <div className="column">
             <Card 
-              title="Modules" 
+              title={t('common:modules')} 
               headerActions={
                 <Button 
                   variant="primary"
-                  onClick={() => navigate(`/module/new`)}
+                  onClick={() => setShowModuleModal(true)}
                 >
-                  Add Module
+                  {t('common:add')} {t('common:module')}
                 </Button>
               }
             >
@@ -710,12 +712,7 @@ const Content = () => {
                         }
                       >
                         <div className="card-content">
-                          {linkedSituation && (
-                            <div className="module-linked-info sofia-mb-2">
-                              Linked to: <strong>{linkedSituation.title}</strong>
-                            </div>
-                          )}
-                          <p>{module.description}</p>
+                          <div dangerouslySetInnerHTML={{ __html: module.description }} />
                           <div className="card-chips sofia-d-flex sofia-gap-2 sofia-mt-2">
                             {module.year && (
                               <span className="chip year-chip">
@@ -735,7 +732,7 @@ const Content = () => {
                     );
                   })
                 ) : (
-                  <p>No modules available.</p>
+                  <p>{t('content:noModules')}</p>
                 )}
               </div>
             </Card>

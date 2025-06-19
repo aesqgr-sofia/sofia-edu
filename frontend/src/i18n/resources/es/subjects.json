@@ -1,0 +1,21 @@
+{
+  "coursePlanner": "Planificador de Curso",
+  "loadingSubjectPlanner": "Cargando planificador de asignatura...",
+  "noDescription": "No hay descripción disponible.",
+  "competenceCoverage": "Cobertura de Competencias",
+  "loadingCoverage": "Cargando cobertura de competencias...",
+  "noCompetencesForSubject": "No hay competencias específicas definidas para esta asignatura y curso.",
+  "overallCoverage": "Cobertura General",
+  "criteriasCovered": "criterios cubiertos",
+  "competencesCovered": "competencias cubiertas",
+  "competences": "competencias",
+  "criteria": "criterios",
+  "fullyCovered": "Completamente Cubierta",
+  "partiallyCovered": "Parcialmente Cubierta",
+  "uncovered": "Sin Cubrir",
+  "notAddressed": "No Abordada",
+  "addressedButNoCriteria": "Abordada (Sin Criterios)",
+  "competenceBreakdown": "Desglose de Competencias",
+  "coveredCriteria": "Criterios Cubiertos",
+  "missingCriteria": "Criterios Faltantes"
+} 

@@ -1,0 +1,21 @@
+{
+  "coursePlanner": "Course Planner",
+  "loadingSubjectPlanner": "Loading subject planner...",
+  "noDescription": "No description available.",
+  "competenceCoverage": "Competence Coverage",
+  "loadingCoverage": "Loading competence coverage...",
+  "noCompetencesForSubject": "No specific competences defined for this subject and year combination.",
+  "overallCoverage": "Overall Coverage",
+  "criteriasCovered": "criteria covered",
+  "competencesCovered": "competences covered",
+  "competences": "competences",
+  "criteria": "criteria",
+  "fullyCovered": "Fully Covered",
+  "partiallyCovered": "Partially Covered",
+  "uncovered": "Uncovered",
+  "notAddressed": "Not Addressed",
+  "addressedButNoCriteria": "Addressed (No Criteria)",
+  "competenceBreakdown": "Competence Breakdown",
+  "coveredCriteria": "Covered Criteria",
+  "missingCriteria": "Missing Criteria"
+} 

@@ -1,0 +1,21 @@
+{
+  "loadingContent": "Cargando contenido...",
+  "error": "Error",
+  "tryAgain": "Intentar de nuevo",
+  "missingData": "Datos faltantes",
+  "noSchoolData": "No hay datos del centro disponibles.",
+  "contentManagement": "Gestión de Contenidos",
+  "filters": "Filtros",
+  "year": "Año",
+  "allYears": "Todos los años",
+  "subject": "Asignatura",
+  "allSubjects": "Todas las asignaturas",
+  "moduleStatus": "Estado del módulo",
+  "allModules": "Todos los módulos",
+  "linked": "Vinculado a situación de aprendizaje",
+  "unlinked": "No vinculado",
+  "learningSituations": "Situaciones de Aprendizaje",
+  "addLearningSituation": "Añadir Situación de Aprendizaje",
+  "modules": "Módulos",
+  "addModule": "Añadir Módulo"
+} 

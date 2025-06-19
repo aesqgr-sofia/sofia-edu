@@ -1,0 +1,239 @@
+/* Form Components Styles */
+
+/* Form Container */
+.sofia-form-container {
+  margin-bottom: 1rem;
+}
+
+.sofia-form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.sofia-form-field--error .sofia-input {
+  border-color: #dc3545;
+  box-shadow: 0 0 0 0.125rem rgba(220, 53, 69, 0.25);
+}
+
+/* Form Labels */
+.sofia-form-label {
+  display: block;
+  font-weight: 500;
+  color: #374151;
+  font-size: 0.875rem;
+  margin-bottom: 0.25rem;
+}
+
+.sofia-form-required {
+  color: #dc3545;
+  margin-left: 0.25rem;
+}
+
+/* Input Container */
+.sofia-form-input-container {
+  position: relative;
+}
+
+/* Base Input Styles */
+.sofia-input {
+  width: 100%;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid #d1d5db;
+  border-radius: 0.375rem;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: #374151;
+  background-color: #ffffff;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.sofia-input:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 0.125rem rgba(59, 130, 246, 0.25);
+}
+
+.sofia-input::placeholder {
+  color: #9ca3af;
+}
+
+.sofia-input--disabled {
+  background-color: #f9fafb;
+  color: #6b7280;
+  cursor: not-allowed;
+}
+
+.sofia-input--readonly {
+  background-color: #f9fafb;
+  cursor: default;
+}
+
+/* Select Specific Styles */
+.sofia-select-container {
+  position: relative;
+}
+
+.sofia-select {
+  appearance: none;
+  background-image: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIiIGhlaWdodD0iOCIgdmlld0JveD0iMCAwIDEyIDgiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxwYXRoIGQ9Ik0xIDFMNiA2TDExIDEiIHN0cm9rZT0iIzZCNzI4MCIgc3Ryb2tlLXdpZHRoPSIxLjUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPgo8L3N2Zz4K');
+  background-repeat: no-repeat;
+  background-position: right 0.75rem center;
+  background-size: 12px 8px;
+  padding-right: 2.5rem;
+}
+
+.sofia-select--loading {
+  background-image: none;
+  padding-right: 2rem;
+}
+
+.sofia-select-spinner {
+  position: absolute;
+  right: 0.75rem;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 1rem;
+  height: 1rem;
+  border: 2px solid #e5e7eb;
+  border-top: 2px solid #3b82f6;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+/* Number Input Styles */
+.sofia-number-input-container {
+  display: flex;
+  align-items: center;
+  border: 1px solid #d1d5db;
+  border-radius: 0.375rem;
+  overflow: hidden;
+  background-color: #ffffff;
+}
+
+.sofia-number-input-container:focus-within {
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 0.125rem rgba(59, 130, 246, 0.25);
+}
+
+.sofia-number-input {
+  flex: 1;
+  border: none;
+  outline: none;
+  text-align: center;
+  background: transparent;
+  padding: 0.5rem;
+}
+
+.sofia-number-input:focus {
+  box-shadow: none;
+}
+
+.sofia-number-input-btn {
+  border: none !important;
+  border-radius: 0 !important;
+  padding: 0.5rem 0.75rem !important;
+  margin: 0 !important;
+  min-width: auto !important;
+  font-weight: 600;
+  font-size: 1rem;
+  line-height: 1;
+  background-color: #f8fafc !important;
+  border-left: 1px solid #e2e8f0 !important;
+  border-right: 1px solid #e2e8f0 !important;
+}
+
+.sofia-number-input-btn:hover:not(:disabled) {
+  background-color: #e2e8f0 !important;
+}
+
+.sofia-number-input-btn--decrement {
+  border-right: 1px solid #e2e8f0 !important;
+  border-left: none !important;
+}
+
+.sofia-number-input-btn--increment {
+  border-left: 1px solid #e2e8f0 !important;
+  border-right: none !important;
+}
+
+/* Form Section */
+.sofia-form-section {
+  margin-bottom: 2rem;
+  padding: 1.5rem;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.5rem;
+  background-color: #ffffff;
+}
+
+.sofia-form-section h2 {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #111827;
+}
+
+.sofia-form-section .section-hint {
+  margin: 0 0 1.5rem 0;
+  color: #6b7280;
+  font-size: 0.875rem;
+}
+
+/* Help Text */
+.sofia-form-hint {
+  display: block;
+  margin-top: 0.25rem;
+  color: #6b7280;
+  font-size: 0.75rem;
+  line-height: 1.4;
+}
+
+.sofia-form-error {
+  display: block;
+  margin-top: 0.25rem;
+  color: #dc3545;
+  font-size: 0.75rem;
+  line-height: 1.4;
+  font-weight: 500;
+}
+
+/* Animations */
+@keyframes spin {
+  from {
+    transform: translateY(-50%) rotate(0deg);
+  }
+  to {
+    transform: translateY(-50%) rotate(360deg);
+  }
+}
+
+/* Form Row - for side-by-side fields */
+.sofia-form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  align-items: start;
+}
+
+@media (max-width: 768px) {
+  .sofia-form-row {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 640px) {
+  .sofia-form-container {
+    margin-bottom: 0.75rem;
+  }
+  
+  .sofia-form-section {
+    margin-bottom: 1.5rem;
+    padding: 1rem;
+  }
+  
+  .sofia-input {
+    font-size: 1rem; /* Prevent zoom on iOS */
+  }
+} 
