@@ -1,1 +1,11 @@
 backend/uploads/
+# Ignore dependencies and build files
+node_modules/
+sofia_venv/
+*.pyc
+__pycache__/
+build/
+dist/
+*.egg-info/
+.env
+.venv
